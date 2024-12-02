@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+    <!-- ScrollView to enable scrolling for long content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black">
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/black"
+                android:theme="@style/ToolbarStyle" />
+
+            <!-- Open in Browser Button -->
+            <Button
+                android:id="@+id/imageRedirectButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/openInBrowser"
+                android:backgroundTint="@color/nasa_blue" />
+
+            <!-- Save to Favorites Button -->
+            <Button
+                android:id="@+id/saveFavouriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/imageRedirectButton"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/save"
+                android:backgroundTint="@color/nasa_blue" />
+
+            <!-- Date Header -->
+            <TextView
+                android:id="@+id/itemDateHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageRedirectButton"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/date"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- Date Content -->
+            <TextView
+                android:id="@+id/nasaItemDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/itemDateHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textColor="@color/white" />
+
+            <!-- Title Header -->
+            <TextView
+                android:id="@+id/itemTitleHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nasaItemDate"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/title"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- Title Content -->
+            <TextView
+                android:id="@+id/nasaItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/itemTitleHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textColor="@color/white" />
+
+            <!-- Explanation Header -->
+            <TextView
+                android:id="@+id/itemExplanationHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nasaItemTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/explanation"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- Explanation Content -->
+            <TextView
+                android:id="@+id/nasaItemExplanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/itemExplanationHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textColor="@color/white" />
+
+            <!-- Image URL Header -->
+            <TextView
+                android:id="@+id/itemImageUrlHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nasaItemExplanation"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/imageURL"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- Image URL Content -->
+            <TextView
+                android:id="@+id/nasaItemImageURL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/itemImageUrlHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:text=""
+                android:textColor="@color/white" />
+
+            <!-- Horizontal ProgressBar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@android:style/Widget.Material.Light.ProgressBar.Horizontal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/nav_menu"
+        android:background="@color/space_grey"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="#939393" />
+</androidx.drawerlayout.widget.DrawerLayout>
